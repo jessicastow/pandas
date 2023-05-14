@@ -64,3 +64,35 @@ df_means.head()
 df_means = df.iloc[:,:12]
 df_means.head()
 ```
+
+## Cleaning
+
+### Issues to look out for:
+
+1. Missing data
+2. Duplicates 
+3. Incorrect datatypes
+
+Solutions to issues
+
+1. Missing data 
+
+- either we can remove the columns with missing data 
+- or for small datasets, we can fill the missing values with the mean, see code below.
+```
+mean = df['view_duration'].mean()
+df['view_duration'] = df['view_duration'].fillna(mean)
+```
+
+OR 
+
+```
+mean = df['column_name'].mean()
+df['column_name'].fillna(mean, inplace = True)
+```
+
+2. Duplicates
+# count the number of duplicates
+sum(df.duplicated())
+# drop duplicates
+df.drop_duplicates(inplace=True)
