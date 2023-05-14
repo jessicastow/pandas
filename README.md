@@ -93,6 +93,14 @@ df['column_name'].fillna(mean, inplace = True)
 
 2. Duplicates
 # count the number of duplicates
-sum(df.duplicated())
+    sum(df.duplicated())
 # drop duplicates
-df.drop_duplicates(inplace=True)
+    df.drop_duplicates(inplace=True)
+    
+3. Incorrect data types
+```
+# get data types
+df.info()
+# convert to datetime data type
+df['timestamp'] = pd.to_datetime(df['timestamp'])
+```
