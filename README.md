@@ -45,3 +45,22 @@ df_powerplant.to_csv('powerplant_data_edited.csv', index=False)
 
 #### same thing applies to `.tail()` which returns the last few rows
     df.tail(2)
+
+#### View the index number and label for each column
+```
+for i, v in enumerate(df.columns):
+    print(i, v)
+```
+
+#### We can select data using loc and iloc, which you can read more about [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html). `loc` uses labels of rows or columns to select data, while `iloc` uses the index numbers. We'll use these to index the dataframe below.
+```
+# select all the columns from 'id' to the last mean column
+df_means = df.loc[:,'id':'fractal_dimension_mean']
+df_means.head()
+```
+
+```
+# repeat the step above using index numbers
+df_means = df.iloc[:,:12]
+df_means.head()
+```
