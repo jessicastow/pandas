@@ -28,8 +28,7 @@ df_powerplant.to_csv('powerplant_data_edited.csv', index=False)
 #### this returns the datatypes of the columns
     df.dtypes
 
-#### this displays a concise summary of the dataframe,
-# including the number of non-null values in each column
+#### this displays a concise summary of the dataframe, including the number of non-null values in each column
     df.info()
 
 #### this returns the number of unique values in each column
@@ -38,12 +37,11 @@ df_powerplant.to_csv('powerplant_data_edited.csv', index=False)
 #### this returns useful descriptive statistics for each column of data
     df.describe()
 
-# this returns the first few lines in our dataframe
-# by default, it returns the first five
+#### this returns the first few lines in our dataframe, by default, it returns the first five
     df.head()
 
-# although, you can specify however many rows you'd like returned
+#### although, you can specify however many rows you'd like returned
     df.head(20)
 
-# same thing applies to `.tail()` which returns the last few rows
+#### same thing applies to `.tail()` which returns the last few rows
     df.tail(2)
