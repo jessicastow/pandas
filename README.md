@@ -1,5 +1,7 @@
 # Pandas notes
 
+* this is a work in progress
+
 #### Import pandas 
     import pandas as pd
 
