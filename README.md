@@ -106,3 +106,28 @@ df.info()
 # convert to datetime data type
 df['timestamp'] = pd.to_datetime(df['timestamp'])
 ```
+### Plotting with Pandas
+
+```
+%matplotlib inline
+
+# Histograms
+df.hist() # display all histograms for all variables
+df.hist(figsize=(8,8));
+df['col_name'].hist(); # to generate a histogram for a specific column
+
+# Plots
+df['col_name'].plot(kind='hist'); # to generate a histogram using the plot function
+df['col_name'].value_counts().plot(kind='bar') # this counts up the number of each of the categories then creates a bar plot
+
+# Pie chart
+df['col_name'].value_counts().plot(kind='pie', figsize=(8,8));
+
+# See relationships between all variables
+pd.plotting.scatter_matrix(df, figsize=(15,15));
+
+# Scatter plot
+df.plot(x='var1', y='var2', kind='scatter');
+
+# Box plot
+df['col_name'].plot(kind='box');
