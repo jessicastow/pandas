@@ -131,3 +131,27 @@ df.plot(x='var1', y='var2', kind='scatter');
 
 # Box plot
 df['col_name'].plot(kind='box');
+```
+
+### Splitting data by category
+
+```
+# splitting males and females
+df_f = df[df['gender'] == 'F']
+df_m = df[df['gender'] == 'M']
+```
+
+### Plotting overlapping histograms 
+```
+import matplotlib.pyplot as plt
+% matplotlib inline
+
+fig, ax = plt.subplots(figsize =(8,6))
+ax.hist(df_b['area_mean'], alpha=0.5, label='benign')
+ax.hist(df_m['area_mean'], alpha=0.5, label='malignant')
+ax.set_title('Distributions of Benign and Malignant Tumor Areas')
+ax.set_xlabel('Area')
+ax.set_ylabel('Count')
+ax.legend(loc='upper right')
+plt.show();
+```
