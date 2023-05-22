@@ -133,9 +133,11 @@ df.plot(x='var1', y='var2', kind='scatter');
 df['col_name'].plot(kind='box');
 ```
 
-### Indexing (splitting data by category)
+### Indexing 
 
 ```
+# Splitting data by category
+
 # splitting males and females
 df_f = df[df['gender'] == 'F']
 df_m = df[df['gender'] == 'M']
@@ -143,6 +145,14 @@ df_m = df[df['gender'] == 'M']
 # using pandas query
 df_f = df.query('gender == "F"')
 df_m = df.query('gender == "M"')
+```
+
+``` 
+# Splitting numeric data
+df_h = df[df['radius'] > 13.375]
+
+# using pandas query
+df_h = df.query('radius > 13.375')
 ```
 
 ### Plotting overlapping histograms 
