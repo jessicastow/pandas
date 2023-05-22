@@ -133,12 +133,16 @@ df.plot(x='var1', y='var2', kind='scatter');
 df['col_name'].plot(kind='box');
 ```
 
-### Splitting data by category
+### Indexing (splitting data by category)
 
 ```
 # splitting males and females
 df_f = df[df['gender'] == 'F']
 df_m = df[df['gender'] == 'M']
+
+# using pandas query
+df_f = df.query('gender == "F"')
+df_m = df.query('gender == "M"')
 ```
 
 ### Plotting overlapping histograms 
@@ -155,3 +159,34 @@ ax.set_ylabel('Count')
 ax.legend(loc='upper right')
 plt.show();
 ```
+
+### Appending data (joining together two or more data frames)
+
+1. Make sure all of the column names are the same
+2. Create a column for the variable that the data frames are separated on
+3. Join the tables
+
+```
+# We will be joining the red wine and white wine data sets
+
+# Rename columns
+df=df.rename(columns = {'old_name' : 'new_name'})
+red_df.rename(columns={'total_sulfur-dioxide':'total_sulfur_dioxide'}, inplace=True)
+
+# Create colour columns using NumPy's `repeat()` function
+color_red = np.repeat('red', 1599) # create color array for red dataframe
+color_white = np.repeat('white', 4898) # create color array for white dataframe
+red_df['color'] = color_red # add column using the array you created
+white_df['color'] = color_white # add column
+
+# Append dataframes
+wine_df = red_df.append(white_df) 
+# view dataframe to check for success
+wine_df.head()
+```
+
+### Pandas Groupby
+```
+df.groupby('col1').mean() # this gives the means for all columns and groups by each category in col1
+df.groupby(['col1', 'col2'], as_index=False)['col3'].mean() # this gives the means for only col3 and groups by col1 and col2
+
