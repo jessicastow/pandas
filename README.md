@@ -200,3 +200,28 @@ wine_df.head()
 df.groupby('col1').mean() # this gives the means for all columns and groups by each category in col1
 df.groupby(['col1', 'col2'], as_index=False)['col3'].mean() # this gives the means for only col3 and groups by col1 and col2
 
+### Creating visualisations 
+```
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+% matplotlib inline
+
+wine_df = pd.read_csv('winequality.csv')
+wine_df.head()
+
+colors = ['red', 'white'] # create list of colours
+wine_df.groupby('color')['quality'].mean().plot(kind='bar', title='Average Wine Quality by Color', color=colors, alpha=.7);
+plt.xlabel('Colors', fontsize=18)
+plt.ylabel('Quality', fontsize=18)
+
+colors = ['red', 'white']
+color_means =wine_df.groupby('color')['quality'].mean()
+color_means.plot(kind='bar', title='Average Wine Quality by Color', color=colors, alpha=.7);
+plt.xlabel('Colors', fontsize=18)
+plt.ylabel('Quality', fontsize=18)
+```
+
+https://seaborn.pydata.org/
+
+https://seaborn.pydata.org/examples/index.html
